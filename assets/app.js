@@ -19,7 +19,7 @@
 //UNIVERSAL VARIABLES//
 
 //putting all artists (and other search terms) into an array
-var artists = ['Jenny Holzer', 'Andy Warhol', 'Barbara Kruger', 'Kieth Haring'];
+var artists = ['Jenny Holzer', 'Andy Warhol', 'Barbara Kruger', 'Yayoi Kusama'];
 //putting all gif
 var animateGif = [];
 var stillGif = [];
@@ -69,6 +69,7 @@ function imageRetrieve() {
       	//creating a variable for the retrieved data
       	var results = response.data;
 
+        console.log(queryURL);
 //for loop that populates artist-view with the results of the query
       	$('.artist-view').empty();
 
