@@ -20,9 +20,6 @@
 
 //putting all artists (and other search terms) into an array
 var artists = ['Jenny Holzer', 'Andy Warhol', 'Barbara Kruger', 'Yayoi Kusama'];
-//putting all gif
-var animateGif = [];
-var stillGif = [];
 
 $(document).ready(function () {
 
@@ -55,7 +52,7 @@ function addButtons() {
 
 function imageRetrieve() {
  	var thisArtist = $(this).attr('data-name');
- 	console.log (thisArtist);
+ 	// console.log (thisArtist);
  	//setting up the query URL
       var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
         thisArtist + "&api_key=dc6zaTOxFJmzC&limit=10";
@@ -65,23 +62,17 @@ function imageRetrieve() {
         url: queryURL,
         method: "GET"
       }).done(function(response) {
-      	console.log(response);
+
+      	// console.log(response);
       	//creating a variable for the retrieved data
       	var results = response.data;
 
         console.log(queryURL);
-//for loop that populates artist-view with the results of the query
+
+//clears the artist view so we just see the results from the most recent query2
       	$('.artist-view').empty();
-
+//for loop that populates artist-view with the results of the query
       	for (var i = 0; i < results.length; i++) {
-      		//creating elements to put the content into
-
-          stillGif = [];
-          animateGif = [];
-          //adds the still and animated gif URLs to an array to be used to pause and play the  gif later
-          stillGif.push(results[i].images.fixed_height_still.url);
-          animateGif.push(results[i].images.fixed_height.url);
-
 
       	 	var gifDiv = $('<div></div>');
       	 	gifDiv.addClass('gif-div');
@@ -92,7 +83,11 @@ function imageRetrieve() {
           //creating the html for the image
       	 	var gifImage = $('<img>');
           //adds attributes for the image, the data state, and the point in the array. the array position is collected as reference for the still/animate gif array later.
-      	 	gifImage.attr('src', results[i].images.fixed_height_still.url).attr('data-state', 'still').attr('data-array', [i]);
+      	 	gifImage.attr('src', results[i].images.fixed_height_still.url)
+          .attr('data-state', 'still')
+          .attr('data-still', results[i].images.fixed_height_still.url)
+          .attr('data-animate', results[i].images.fixed_height.url)
+          ;
 
           //adding the rating and image to the gif div
       	 	gifDiv.append(printRating).append(gifImage);
@@ -107,28 +102,21 @@ function imageRetrieve() {
 //playGifs will make the function where clicking a gif will animate if still
 // or still if animated.
 function playGifs () {
-	// console.log('playGifs works!');
 
-    // console.log(stillGif);
-    // console.log(animateGif);
+    var state = $(this).attr('data-state')
 
-//state and array give us info to work the if/else conditional and grab urls from the array
-    var state = $(this).attr('data-state');
-    console.log(state);
+      if (state == 'still') {
 
-    var arrayPosition = $(this).attr('data-array');
-    console.log(arrayPosition);
-
-    if (state == 'still'){
-        $(this).attr('src', animateGif[arrayPosition]);
-        $(this).attr('data-state', 'animated');
-    } else if (state !== 'still'){
-        $(this).attr('src', stillGif[arrayPosition]);
+        $(this).attr('src', $(this).attr('data-animate'));
+        $(this).attr('data-state', 'animate');
+      } else {
+        //another way to do it
+        $(this).attr('src', $(this).attr('data-still'));
         $(this).attr('data-state', 'still');
+      };
+
   };
-	
-};
-///results[i].images.fixed_height.url///
+
 
 
 //===== VIEWABLE TO USER =====//
