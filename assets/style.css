@@ -1,0 +1,15 @@
+button {
+	margin: 5px;
+}
+
+.row,
+input {
+	margin-bottom: 10px;
+}
+
+h1 {
+	background-color: red;
+	color: white;
+	font-weight: bolder;
+	font-style: italic;
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;

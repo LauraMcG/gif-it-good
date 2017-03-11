@@ -3,29 +3,44 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Gif it, Gif it good</title>
+  <title>Art on repeat</title>
 
    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
    <script type="text/javascript" src="assets/app.js"></script>
    
-	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/style.css">
 
 </head>
 <body>
+<div class="contanier">
+  <div class="col-md-1">
+  </div>
 
-	<div class= artist-buttons>
-		 
-	</div>
+<div class="col-md-10">
+      <div class = "row title">
+          <h1>Art on repeat</h1>
+      </div>
 
-	<form id="artist-form">
-    	<label for="add-input">Add Another</label>
-    		<input type="text" id="artist-input"><br>
-      		<input id="add-artist" type="submit" value="Add Another">
-    </form>
+       <div class= "row artist-buttons">
+               
+       </div>
 
-	</div>
+      <div class = "row form">
+            <form id="artist-form">
+                <label for="add-input"></label>
+                  <input type="text" id="artist-input">
+                  <input id="add-artist" type="submit" value="Add Another"> 
+            </form>
+      </div>
 
-	<div class="artist-view"></div> 
+      <div class="row artist-view">
+          
+      </div> 
+</div>
+
+  <!-- end container -->
+</div>
 
 </body>
 </html>

@@ -32,7 +32,7 @@ function makeButtons () {
 	//adds the button to the containing div
 	for (var i = 0; i < artists.length; i++) {
 		var b = $('<button>');
-		b.addClass('artist');
+		b.addClass('artist').addClass('btn btn-info');
 		b.attr('data-name', artists[i]);
 		b.text(artists[i]);
 		$('.artist-buttons').append(b);
@@ -47,7 +47,8 @@ function addButtons() {
 	var newArtist = $('#artist-input').val().trim();
 	artists.push(newArtist);
 	makeButtons();
-//end addButtons
+  $('#artist-input').val().clear();
+  //end addButtons
 };
 
 function imageRetrieve() {
