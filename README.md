@@ -3,7 +3,8 @@ _Created as part of the Northwestern Coding Boot Camp curriculum_
 
 Art on Repeat is a tool for viewing gifs of artists available through the GIPHY API.
 
-View it here: (https://artonrepeat.herokuapp.com)
+View it here: (https://artonrepeat.herokuapp.com) 
+Note that the giphy API can sometimes trigger an "insecure content" warning on some browsers, blocking the API call. You may need to disable this warning on the page to see it in action.
 
 Upon load, the page is populated with a list of buttons and an entry form. When the user presses on a button, a search is made to the giphy API for that subject, and a gallery of relevant still gifs is added to the screen with information on the rating of each gif. The user can click on a gif to animate, and click again to freeze.
 
