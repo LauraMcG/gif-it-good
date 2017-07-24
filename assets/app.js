@@ -13,7 +13,6 @@
 // DONE Pressing another button reloads the gallery with gifs relevant to the new topic.
 // DONE The user can click on a gif to animate, and click again to freeze.
 
-
 //ACTUAL CODING//
 
 //UNIVERSAL VARIABLES//
@@ -68,7 +67,7 @@ function imageRetrieve() {
       	//creating a variable for the retrieved data
       	var results = response.data;
 
-        console.log(queryURL);
+        // console.log(queryURL);
 
 //clears the artist view so we just see the results from the most recent query2
       	$('.artist-view').empty();
